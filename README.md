@@ -1,5 +1,7 @@
 # PSYCHE-D: Predicting change in depression severity using person-generated health data
 
+[![License: CC BY-NC 4.0](https://licensebuttons.net/l/by-nc/4.0/80x15.png)](https://creativecommons.org/licenses/by-nc/4.0/)
+
 PSYCHE-D (Predicting SeveritY CHangE in Depression) is a two-phase multi-class classification model that predicts longitudinal changes in depression severity using person-generated health data in the form of survey responses and consumer wearable sleep and step data. This repository contains code that can be used to replicate the results presented in [PAPER TITLE/DOI].
 
 ### Abstract
