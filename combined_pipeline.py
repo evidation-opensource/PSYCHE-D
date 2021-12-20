@@ -10,9 +10,6 @@ RANDOM_SEED = 0
 np.random.seed(RANDOM_SEED)
 
 ################
-DATA_PATH = 'SET_DATA_PATH_HERE'
-OUTPUT_PATH = 'SET_OUTPUT_PATH_HERE'
-
 import argparse
 
 parser = argparse.ArgumentParser()
@@ -22,6 +19,9 @@ parser.add_argument('--output_path',type=str, default=False,
                     help='Path to write output artifacts')
 args = parser.parse_args()
 print(args)
+
+DATA_PATH = args.data_path
+OUTPUT_PATH = args.output_path
 #################
 
 data_original = pd.read_parquet(DATA_PATH)
