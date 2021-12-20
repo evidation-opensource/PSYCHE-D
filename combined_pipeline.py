@@ -9,7 +9,20 @@ from utils import *
 RANDOM_SEED = 0
 np.random.seed(RANDOM_SEED)
 
-DATA_PATH = '/mnt/data/mariko/anon_processed_df_parquet'
+################
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--data_path', type=str, default=False,
+                    help='Path to dataset')
+parser.add_argument('--output_path',type=str, default=False, 
+                    help='Path to write output artifacts')
+args = parser.parse_args()
+print(args)
+
+DATA_PATH = args.data_path
+OUTPUT_PATH = args.output_path
+#################
 
 data_original = pd.read_parquet(DATA_PATH)
 data_original['user_id'] = [x.rsplit('_')[0] for x in data_original.index]
@@ -233,11 +246,11 @@ for seed in RANDOM_SEEDS:
 
 print('SAVING FEATURE IMPORTANCES...')
 
-with open("/mnt/data/scratch/importance_" + IMPORTANCE_TYPE + "_1.json", "w", newline="") as f:
+with open(OUTPUT_PATH + "/importance_" + IMPORTANCE_TYPE + "_1.json", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(feature_importances_1)
     
-with open("/mnt/data/scratch/importance_" + IMPORTANCE_TYPE + "_2.json", "w", newline="") as f:
+with open(OUTPUT_PATH + "/importance_" + IMPORTANCE_TYPE + "_2.json", "w", newline="") as f:
     writer = csv.writer(f)
     writer.writerows(feature_importances_2)
     
